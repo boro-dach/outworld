@@ -14,6 +14,7 @@ import { applicationSchema } from "../model/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/shared/ui/textarea";
 import { Button } from "@/shared/ui/button";
+import { createApplication } from "@/entities/application/api/create";
 
 interface AddCategoryFormProps {
   onSuccess?: () => void;
@@ -29,7 +30,7 @@ const CreateApplicationForm = ({ onSuccess }: AddCategoryFormProps) => {
 
   async function onSubmit(values: z.infer<typeof applicationSchema>) {
     try {
-      console.log("Submitted values:", values);
+      createApplication(values);
     } catch (error) {
       console.error("Submission error:", error);
     }
