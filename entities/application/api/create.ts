@@ -12,7 +12,7 @@ export async function createApplication(values: any) {
     }
 
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/application/get`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/application/create`,
       values,
       {
         headers: {
@@ -23,7 +23,7 @@ export async function createApplication(values: any) {
 
     return response.data;
   } catch (error) {
-    console.error("Ошибка при получении заявок:", error);
+    console.error("Ошибка при создании заявки:", error);
     throw error;
   }
 }
