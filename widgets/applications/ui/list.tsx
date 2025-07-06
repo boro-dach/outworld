@@ -17,8 +17,10 @@ const ApplicationsList = () => {
 
   if (isLoading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка при загрузке заявок</div>;
+
+  const reversedData = data ? [...data].reverse() : [];
   return (
-    <div className="w-full py-4">
+    <div className="w-full py-4 flex flex-col gap-4">
       {data?.map((application: ApplicationType) => (
         <Application
           key={application.id}

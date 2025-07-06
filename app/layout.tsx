@@ -37,7 +37,7 @@ export default function RootLayout({
       >
         <QueryProvider>
           <Header />
-          <div className="p-4">{children}</div>
+          <div className="p-4 md:p-8">{children}</div>
           <Toaster
             position="top-center"
             richColors

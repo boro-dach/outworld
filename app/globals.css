@@ -124,3 +124,7 @@
 .font-unbounded {
   font-family: var(--font-unbounded);
 }
+
+* {
+  scroll-behavior: smooth;
+}
