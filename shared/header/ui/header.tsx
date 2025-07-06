@@ -1,10 +1,16 @@
+"use client";
+
 import { Button } from "@/shared/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const Header = () => {
-  return (
+  const pathname = usePathname();
+
+  const shouldShowHeader = !pathname.startsWith("/dashboard");
+  return shouldShowHeader ? (
     <div className="grid grid-cols-3 items-center h-16 px-4 border-b border-zinc-800">
       <Image
         src={"/outworld_logo.png"}
@@ -27,7 +33,7 @@ const Header = () => {
         </Link>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Header;

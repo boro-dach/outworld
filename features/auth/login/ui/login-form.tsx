@@ -32,7 +32,7 @@ const LoginForm = () => {
   async function onSubmit(values: z.infer<typeof loginSchema>) {
     try {
       await login(values);
-      router.push("/applications");
+      router.push("/dashboard/applications");
     } catch (error) {}
   }
 

@@ -33,7 +33,7 @@ const RegisterForm = () => {
   async function onSubmit(values: z.infer<typeof registerSchema>) {
     try {
       await register(values);
-      router.push("/applications");
+      router.push("/dashboard/applications");
     } catch (error) {}
   }
 

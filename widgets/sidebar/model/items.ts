@@ -11,17 +11,17 @@ import {
 export const items = [
   {
     title: "Заявки",
-    url: "/applications",
+    url: "/dashboard/applications",
     icon: FileUser,
   },
   {
     title: "Новости",
-    url: "/news",
+    url: "/dashboard/news",
     icon: Globe,
   },
   {
     title: "Ивенты",
-    url: "/events",
+    url: "/dashboard/events",
     icon: Calendar,
   },
   {
