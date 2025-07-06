@@ -42,7 +42,7 @@ const RegisterForm = () => {
           name="login"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Ник minecraft</FormLabel>
+              <FormLabel>Ник Minecraft</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>

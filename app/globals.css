@@ -120,3 +120,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.font-unbounded {
+  font-family: var(--font-unbounded);
+}

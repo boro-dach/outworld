@@ -5,7 +5,7 @@ import { toast } from "sonner";
 export async function register(values: any) {
   try {
     const response = await axios.post(
-      "http://localhost:5000/auth/register",
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/register`,
       values
     );
 
