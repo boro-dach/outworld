@@ -15,7 +15,7 @@ export const useCreateApplication = () => {
   return useMutation({
     mutationFn: createApplication,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["applications"] });
+      queryClient.refetchQueries({ queryKey: ["applications"] });
       toast.success("Заявка успешно создана!");
     },
     onError: (error: any) => {

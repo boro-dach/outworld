@@ -7,7 +7,7 @@ const Application = ({ text, status }: ApplicationProps) => {
   return (
     <Card className="w-full">
       <CardHeader className="text-xl font-bold">Заявка</CardHeader>
-      <CardContent>{text}</CardContent>
+      <CardContent>Текст заявки: {text}</CardContent>
       <CardFooter
         className={
           status === ApplicationStatus.APPROVED
