@@ -12,7 +12,7 @@ export async function getApplications(values: any) {
     }
 
     const response = await axios.post(
-      "http://localhost:5000/application/get",
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/application/get`,
       values,
       {
         headers: {

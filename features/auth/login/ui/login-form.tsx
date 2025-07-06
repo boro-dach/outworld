@@ -17,8 +17,10 @@ import { Input } from "@/shared/ui/input";
 import { Button } from "@/shared/ui/button";
 import Link from "next/link";
 import { login } from "../api/login";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -30,6 +32,7 @@ const LoginForm = () => {
   async function onSubmit(values: z.infer<typeof loginSchema>) {
     try {
       await login(values);
+      router.push("/applications");
     } catch (error) {}
   }
 
@@ -41,7 +44,7 @@ const LoginForm = () => {
           name="login"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Ник minecraft</FormLabel>
+              <FormLabel>Ник Minecraft</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>

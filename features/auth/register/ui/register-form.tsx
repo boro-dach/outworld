@@ -17,8 +17,10 @@ import { Input } from "@/shared/ui/input";
 import { Button } from "@/shared/ui/button";
 import Link from "next/link";
 import { register } from "../api/register";
+import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -31,6 +33,7 @@ const RegisterForm = () => {
   async function onSubmit(values: z.infer<typeof registerSchema>) {
     try {
       await register(values);
+      router.push("/applications");
     } catch (error) {}
   }
 
