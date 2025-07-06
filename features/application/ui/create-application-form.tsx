@@ -15,7 +15,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/shared/ui/textarea";
 import { Button } from "@/shared/ui/button";
 
-const ApplicationForm = () => {
+interface AddCategoryFormProps {
+  onSuccess?: () => void;
+}
+
+const CreateApplicationForm = ({ onSuccess }: AddCategoryFormProps) => {
   const form = useForm<z.infer<typeof applicationSchema>>({
     resolver: zodResolver(applicationSchema),
     defaultValues: {
@@ -41,10 +45,10 @@ const ApplicationForm = () => {
           name="text"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Текст заявки</FormLabel>
+              <FormLabel className="text-lg">Текст заявки</FormLabel>
               <FormControl>
                 <Textarea
-                  className="w-full"
+                  className="w-full text-sm"
                   placeholder="Опишите РП персонажа за которого будете играть на сервере"
                   {...field}
                 />
@@ -58,4 +62,4 @@ const ApplicationForm = () => {
   );
 };
 
-export default ApplicationForm;
+export default CreateApplicationForm;

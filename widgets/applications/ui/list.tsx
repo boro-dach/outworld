@@ -1,8 +1,9 @@
 "use client";
 
 import { ApplicationStatus } from "@/entities/application/model/types";
-import { useApplicationsQuery } from "@/entities/application/model/use-applications";
+import { useApplications } from "@/entities/application/model/use-applications";
 import Application from "@/entities/application/ui/application";
+import CreateApplicationButton from "@/features/application/ui/create-application-button";
 import React from "react";
 
 type ApplicationType = {
@@ -12,7 +13,7 @@ type ApplicationType = {
 };
 
 const ApplicationsList = () => {
-  const { data, isLoading, error } = useApplicationsQuery();
+  const { data, isLoading, error } = useApplications();
 
   if (isLoading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка при загрузке заявок</div>;
