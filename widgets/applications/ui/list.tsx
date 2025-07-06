@@ -21,7 +21,7 @@ const ApplicationsList = () => {
   const reversedData = data ? [...data].reverse() : [];
   return (
     <div className="w-full py-4 flex flex-col gap-4">
-      {data?.map((application: ApplicationType) => (
+      {reversedData?.map((application: ApplicationType) => (
         <Application
           key={application.id}
           text={application.text}
