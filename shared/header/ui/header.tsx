@@ -1,7 +1,11 @@
 "use client";
 import { Button } from "@/shared/ui/button";
-import { DropdownMenu, DropdownMenuTrigger } from "@/shared/ui/dropdown-menu";
-import { Menu } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/shared/ui/dropdown-menu";
+import { LayoutDashboard, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -39,6 +43,23 @@ const Header = () => {
                 <Menu />
               </Button>
             </DropdownMenuTrigger>
+            <DropdownMenuContent className="flex flex-col gap-2 p-2">
+              <Link href={"/"} className="hover:underline transition-colors">
+                Главная
+              </Link>
+              <Link
+                href={"https://discord.gg/E2UeKHhKTg"}
+                className="hover:underline transition-colors"
+              >
+                Discord
+              </Link>
+              <Link
+                href={"https://donatepay.eu/don/urjustwannabe"}
+                className="hover:underline transition-colors"
+              >
+                Поддержать
+              </Link>
+            </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </div>
@@ -65,9 +86,13 @@ const Header = () => {
 
       <div className="flex items-center gap-2 md:gap-4 justify-end">
         {isLoading ? (
-          <div className="w-24 h-10 bg-gray-200 animate-pulse rounded"></div>
+          <div className="w-32 h-10 bg-zinc-400 animate-pulse rounded"></div>
         ) : isAuthenticated ? (
-          <Link href={"/dashboard/applications"}>Панель управления</Link>
+          <Link href={"/dashboard/applications"}>
+            <Button variant="outline" className="h-10 w-10">
+              <LayoutDashboard />
+            </Button>
+          </Link>
         ) : (
           <>
             <Link href={"/auth/register"}>

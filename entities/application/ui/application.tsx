@@ -20,7 +20,7 @@ const Application = ({ text, status }: ApplicationProps) => {
         {status === ApplicationStatus.APPROVED
           ? "Заявка одобрена, можете заходить на сервер!"
           : status === ApplicationStatus.PENDING
-          ? "Заявка в обработке.."
+          ? "Заявка на рассмотрении.."
           : "Заявка отклонена :("}
       </CardFooter>
     </Card>

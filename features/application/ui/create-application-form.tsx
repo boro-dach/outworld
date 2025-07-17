@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Form,
   FormControl,
@@ -14,7 +13,7 @@ import { applicationSchema } from "../model/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/shared/ui/textarea";
 import { Button } from "@/shared/ui/button";
-import { createApplication } from "@/entities/application/api/create";
+import { useCreateApplication } from "@/entities/application/model/use-applications";
 
 interface AddCategoryFormProps {
   onSuccess?: () => void;
@@ -28,13 +27,19 @@ const CreateApplicationForm = ({ onSuccess }: AddCategoryFormProps) => {
     },
   });
 
+  const createApplicationMutation = useCreateApplication();
+
   async function onSubmit(values: z.infer<typeof applicationSchema>) {
     try {
-      createApplication(values);
+      await createApplicationMutation.mutateAsync(values);
+      form.reset(); // Сброс формы после успешного создания
+      onSuccess?.(); // Вызов колбека для закрытия drawer
     } catch (error) {
       console.error("Submission error:", error);
+      // Ошибка уже обработана в хуке useCreateApplication
     }
   }
+
   return (
     <Form {...form}>
       <form
@@ -56,8 +61,14 @@ const CreateApplicationForm = ({ onSuccess }: AddCategoryFormProps) => {
               </FormControl>
             </FormItem>
           )}
-        ></FormField>
-        <Button className="w-full">Отправить</Button>
+        />
+        <Button
+          className="w-full"
+          type="submit"
+          disabled={createApplicationMutation.isPending}
+        >
+          {createApplicationMutation.isPending ? "Отправка..." : "Отправить"}
+        </Button>
       </form>
     </Form>
   );

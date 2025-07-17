@@ -45,7 +45,12 @@ const RegisterForm = () => {
           name="login"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Ник Minecraft</FormLabel>
+              <FormLabel>
+                Ник Minecraft{" "}
+                <span className="text-zinc-400">
+                  Внимание, для игры на сервере требуется лицензия!
+                </span>
+              </FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
