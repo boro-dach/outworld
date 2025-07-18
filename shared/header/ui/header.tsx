@@ -39,7 +39,7 @@ const Header = () => {
         <div className="flex md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="h-10 w-10">
+              <Button variant="outline" className="h-10 w-10 cursor-pointer">
                 <Menu />
               </Button>
             </DropdownMenuTrigger>
@@ -89,7 +89,7 @@ const Header = () => {
           <div className="w-32 h-10 bg-zinc-400 animate-pulse rounded"></div>
         ) : isAuthenticated ? (
           <Link href={"/dashboard/applications"}>
-            <Button variant="outline" className="h-10 w-10">
+            <Button variant="outline" className="h-10 w-10 cursor-pointer">
               <LayoutDashboard />
             </Button>
           </Link>

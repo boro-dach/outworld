@@ -5,6 +5,7 @@ import {
   Globe,
   Scale,
   Truck,
+  User,
   Wallet,
 } from "lucide-react";
 
@@ -33,6 +34,11 @@ export const items = [
     title: "Суд",
     url: "#",
     icon: Scale,
+  },
+  {
+    title: "Профиль",
+    url: "/dashboard/me",
+    icon: User,
   },
   {
     title: "о!Доставка",

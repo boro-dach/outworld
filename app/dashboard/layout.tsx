@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       <AppSidebar />
       <main className="w-full">
-        <SidebarTrigger />
+        <SidebarTrigger className="border border-zinc-800 cursor-pointer" />
         <div className="py-4">{children}</div>
       </main>
     </SidebarProvider>
