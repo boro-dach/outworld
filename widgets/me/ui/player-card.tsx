@@ -74,7 +74,7 @@ const PlayerCard = () => {
         <VerificationBadge isVerified={verificationData?.isVerified} />
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
-        <p>
+        <div>
           Ваша роль: {role?.role === "ADMIN" ? "Администратор" : "Игрок"}{" "}
           {role?.role === "ADMIN" ? (
             <Link
@@ -88,7 +88,7 @@ const PlayerCard = () => {
           ) : (
             ""
           )}
-        </p>
+        </div>
         <p>Время на сервере: {formatPlaytime(playtime)}</p>
       </CardContent>
     </Card>
