@@ -10,6 +10,8 @@ import {
 import Image from "next/image";
 import VerificationBadge from "@/entities/user/ui/verification-badge";
 import { formatPlaytime } from "@/shared/lib/formatters/format-playtime";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 const PlayerCard = () => {
   const [mounted, setMounted] = useState(false);
@@ -72,7 +74,21 @@ const PlayerCard = () => {
         <VerificationBadge isVerified={verificationData?.isVerified} />
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
-        <p>Ваша роль: {role?.role === "ADMIN" ? "Администратор" : "Игрок"}</p>
+        <p>
+          Ваша роль: {role?.role === "ADMIN" ? "Администратор" : "Игрок"}{" "}
+          {role?.role === "ADMIN" ? (
+            <Link
+              href={"/admin/dashboard/applications"}
+              className="text-blue-400"
+            >
+              <div className="flex flex-row items-center">
+                админ-панель <ArrowUpRight size={18} />
+              </div>
+            </Link>
+          ) : (
+            ""
+          )}
+        </p>
         <p>Время на сервере: {formatPlaytime(playtime)}</p>
       </CardContent>
     </Card>
