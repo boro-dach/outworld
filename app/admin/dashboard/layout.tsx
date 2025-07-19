@@ -1,0 +1,14 @@
+import { SidebarProvider, SidebarTrigger } from "@/shared/ui/sidebar";
+import { AppSidebar } from "@/widgets/sidebar/ui/sidebar";
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <SidebarProvider>
+      <AppSidebar />
+      <main className="w-full">
+        <SidebarTrigger className="border border-zinc-800 cursor-pointer" />
+        <div className="py-4">{children}</div>
+      </main>
+    </SidebarProvider>
+  );
+}

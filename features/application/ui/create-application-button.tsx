@@ -13,7 +13,7 @@ const CreateApplicationButton = () => {
       open={open}
       onOpenChange={setOpen}
       trigger={
-        <Button variant={"secondary"} className="w-8 h-8">
+        <Button variant={"secondary"} className="w-8 h-8 cursor-pointer">
           <Plus />
         </Button>
       }

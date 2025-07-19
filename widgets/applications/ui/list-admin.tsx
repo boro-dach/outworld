@@ -1,18 +1,19 @@
 "use client";
 
 import { ApplicationStatus } from "@/entities/application/model/types";
-import { useUserApplications } from "@/entities/application/model/use-applications";
-import Application from "@/entities/application/ui/application";
+import { useAllApplications } from "@/entities/application/model/use-applications";
+import AdminApplication from "@/entities/application/ui/appplication-admin";
 import React from "react";
 
 type ApplicationType = {
+  user: any;
   id: string;
   text: string;
   status: ApplicationStatus;
 };
 
-const ApplicationsList = () => {
-  const { data, isLoading, error } = useUserApplications();
+const AdminApplicationsList = () => {
+  const { data, isLoading, error } = useAllApplications();
 
   if (isLoading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка при загрузке заявок</div>;
@@ -21,8 +22,10 @@ const ApplicationsList = () => {
   return (
     <div className="w-full py-4 flex flex-col gap-4">
       {reversedData?.map((application: ApplicationType) => (
-        <Application
+        <AdminApplication
+          login={application.user.login}
           key={application.id}
+          applicationId={application.id}
           text={application.text}
           status={application.status}
         />
@@ -36,4 +39,4 @@ const ApplicationsList = () => {
   );
 };
 
-export default ApplicationsList;
+export default AdminApplicationsList;

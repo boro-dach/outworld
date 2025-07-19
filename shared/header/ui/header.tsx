@@ -14,7 +14,9 @@ import Cookies from "js-cookie";
 
 const Header = () => {
   const pathname = usePathname();
-  const shouldShowHeader = !pathname.startsWith("/dashboard");
+  const shouldShowHeader = !["/dashboard", "/admin"].some((prefix) =>
+    pathname.startsWith(prefix)
+  );
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
