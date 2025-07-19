@@ -67,7 +67,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.next(); // Роль ADMIN, пускаем на страницу
     } else {
       // Если роль не ADMIN (или ошибка получения роли), перенаправляем на главную
-      return NextResponse.redirect(new URL("/", request.url));
+      return NextResponse.redirect(new URL("/no-admin", request.url));
     }
   }
 
