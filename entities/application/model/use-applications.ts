@@ -17,12 +17,15 @@ export const useUserApplications = () =>
   useQuery({
     queryKey: applicationKeys.my,
     queryFn: getApplications,
+    refetchInterval: 60000,
   });
 
 export const useAllApplications = () =>
   useQuery({
     queryKey: applicationKeys.all,
     queryFn: getAllApplications,
+    refetchInterval: 60000,
+    refetchIntervalInBackground: true,
   });
 
 export const useCreateApplication = () => {
@@ -32,7 +35,6 @@ export const useCreateApplication = () => {
     mutationFn: createApplication,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["applications"] });
-
       toast.success("Заявка успешно создана!");
     },
     onError: (error: any) => {
@@ -50,7 +52,6 @@ export const useDeleteApplication = () => {
     mutationFn: deleteApplication,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["applications"] });
-
       toast.success("Заявка успешно удалена");
     },
     onError: (error: any) => {
@@ -68,7 +69,6 @@ export const useApproveApplication = () => {
     mutationFn: approveApplication,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["applications"] });
-
       toast.success("Заявка успешно подтверждена");
     },
     onError: (error: any) => {
@@ -86,7 +86,6 @@ export const useRejectApplication = () => {
     mutationFn: rejectApplication,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["applications"] });
-
       toast.success("Заявка успешно отклонена");
     },
     onError: (error: any) => {
@@ -96,6 +95,3 @@ export const useRejectApplication = () => {
     },
   });
 };
-
-// ... сюда можно добавить хуки для удаления, изменения статуса и т.д.
-// они тоже будут использовать `invalidateQueries({ queryKey: ['applications'] })`
