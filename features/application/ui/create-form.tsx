@@ -15,11 +15,11 @@ import { Textarea } from "@/shared/ui/textarea";
 import { Button } from "@/shared/ui/button";
 import { useCreateApplication } from "@/entities/application/model/use-applications";
 
-interface AddCategoryFormProps {
+interface CreateApplicationFormProps {
   onSuccess?: () => void;
 }
 
-const CreateApplicationForm = ({ onSuccess }: AddCategoryFormProps) => {
+const CreateApplicationForm = ({ onSuccess }: CreateApplicationFormProps) => {
   const form = useForm<z.infer<typeof applicationSchema>>({
     resolver: zodResolver(applicationSchema),
     defaultValues: {
@@ -32,11 +32,10 @@ const CreateApplicationForm = ({ onSuccess }: AddCategoryFormProps) => {
   async function onSubmit(values: z.infer<typeof applicationSchema>) {
     try {
       await createApplicationMutation.mutateAsync(values);
-      form.reset(); // Сброс формы после успешного создания
-      onSuccess?.(); // Вызов колбека для закрытия drawer
+      form.reset();
+      onSuccess?.();
     } catch (error) {
       console.error("Submission error:", error);
-      // Ошибка уже обработана в хуке useCreateApplication
     }
   }
 

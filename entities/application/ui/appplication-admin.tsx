@@ -3,9 +3,9 @@ import React from "react";
 import { AdminApplicationProps, ApplicationProps } from "../model/props";
 import { ApplicationStatus } from "../model/types";
 import Image from "next/image";
-import DeleteApplicationButton from "@/features/application/ui/delete-application-button";
-import ApproveApplicationButton from "@/features/application/ui/approve-application-button";
-import RejectApplicationButton from "@/features/application/ui/reject-application-button";
+import DeleteApplicationButton from "@/features/application/ui/delete-button";
+import ApproveApplicationButton from "@/features/application/ui/approve-button";
+import RejectApplicationButton from "@/features/application/ui/reject-button";
 
 const AdminApplication = ({
   text,

@@ -1,4 +1,4 @@
-import RefreshApplicationsButton from "@/features/application/ui/refresh-applications-button";
+import RefreshApplicationsButton from "@/features/application/ui/refresh-button";
 import AdminApplicationsList from "@/widgets/applications/ui/list-admin";
 import React from "react";
 

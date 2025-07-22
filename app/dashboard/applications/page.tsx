@@ -1,4 +1,4 @@
-import CreateApplicationButton from "@/features/application/ui/create-application-button";
+import CreateApplicationButton from "@/features/application/ui/create-button";
 import ApplicationsList from "@/widgets/applications/ui/list";
 import React from "react";
 

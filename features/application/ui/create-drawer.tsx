@@ -8,7 +8,7 @@ import {
   DrawerTrigger,
 } from "@/shared/ui/drawer";
 import React from "react";
-import CreateApplicationForm from "./create-application-form";
+import CreateApplicationForm from "./create-form";
 import { Button } from "@/shared/ui/button";
 
 interface CreateApplicationDrawerProps {

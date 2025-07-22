@@ -27,7 +27,7 @@ export const items = [
   },
   {
     title: "Финансы",
-    url: "#",
+    url: "/dashboard/bank",
     icon: Wallet,
   },
   {

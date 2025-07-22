@@ -3,13 +3,13 @@
 import { Button } from "@/shared/ui/button";
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
-import CreateApplicationDrawer from "./create-application-drawer";
+import CreateBankcardDrawer from "./create-drawer";
 
-const CreateApplicationButton = () => {
+const CreateBankcardButton = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <CreateApplicationDrawer
+    <CreateBankcardDrawer
       open={open}
       onOpenChange={setOpen}
       trigger={
@@ -21,4 +21,4 @@ const CreateApplicationButton = () => {
   );
 };
 
-export default CreateApplicationButton;
+export default CreateBankcardButton;
