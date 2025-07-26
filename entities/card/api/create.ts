@@ -12,7 +12,7 @@ export async function createCard(values: any) {
     }
 
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/bank/create-card`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/card/create-card`,
       values,
       {
         headers: {

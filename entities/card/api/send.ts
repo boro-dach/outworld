@@ -12,7 +12,7 @@ export async function sendToCard(values: any) {
     }
 
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/bank/send-to-card`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/card/send`,
       values,
       {
         headers: {
