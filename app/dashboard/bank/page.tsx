@@ -20,7 +20,8 @@ const Bank = () => {
       </div>
       <div className="flex flex-col md:grid md:grid-cols-4 md:grid-rows-1 w-full">
         <CardsList />
-        <div className="md:col-span-3 md:flex md:flex-col md:items-center hidden w-full px-4">
+        <div className="md:col-span-3 flex flex-col w-full px-4">
+          <h3 className="font-bold text-2xl mt-4 md:mt-0">Ваши транзакции:</h3>
           <TransactionsList />
         </div>
       </div>

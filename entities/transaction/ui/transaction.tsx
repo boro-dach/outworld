@@ -1,4 +1,5 @@
 import { Card, CardContent, CardFooter, CardHeader } from "@/shared/ui/card";
+import Image from "next/image";
 import React from "react";
 
 export interface TransactionProps {
@@ -7,6 +8,7 @@ export interface TransactionProps {
   type: "DEPOSIT" | "WITHDRAW" | "TRANSFER_IN" | "TRANSFER_OUT";
   amount: number;
   status: "PENDING" | "COMPLETED" | "FAILED";
+  user?: string;
 }
 
 const Transaction = ({
@@ -15,10 +17,11 @@ const Transaction = ({
   type,
   amount,
   status,
+  user,
 }: TransactionProps) => {
   return (
     <Card>
-      <CardHeader className="flex flex-row items-center font-bold gap-2">
+      <CardHeader className="flex flex-row items-center font-bold w-full gap-2">
         {type === "DEPOSIT"
           ? "Вклад на карту"
           : type === "WITHDRAW"
@@ -29,6 +32,21 @@ const Transaction = ({
           ? "Перевод с карты"
           : ""}{" "}
         {cardNumber ? cardNumber : relatedCardId}
+        {user && type === "TRANSFER_IN" ? (
+          <>
+            {" от "}
+            <Image
+              src={`https://mc-heads.net/avatar/${user}/32`}
+              width={32}
+              height={32}
+              alt="лицо отправителя в MineCraft"
+              className="rounded-sm"
+            />
+            {user}
+          </>
+        ) : (
+          ""
+        )}
       </CardHeader>
       <CardContent
         className={
