@@ -12,7 +12,7 @@ export async function getAllArticles(values: any) {
     }
 
     const response = await axios.post(
-      "http://localhost:5000/article/get-all",
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/article/get-all`,
       values,
       {
         headers: {
