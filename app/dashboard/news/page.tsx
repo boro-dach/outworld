@@ -1,11 +1,11 @@
-import NewsList from "@/widgets/news/ui/list";
+import ArticlesList from "@/widgets/articles/ui/list";
 import React from "react";
 
 const News = () => {
   return (
     <div>
       <h3 className="font-bold text-2xl">Новости:</h3>
-      <NewsList />
+      <ArticlesList />
     </div>
   );
 };
