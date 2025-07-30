@@ -1,4 +1,4 @@
-import NewsList from "@/widgets/news/ui/list";
+import NewsList from "@/widgets/articles/ui/list";
 import React from "react";
 
 const News = () => {

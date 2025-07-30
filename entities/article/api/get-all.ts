@@ -3,7 +3,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export async function getAllNews(values: any) {
+export async function getAllArticles(values: any) {
   try {
     const accessToken = Cookies.get("accessToken");
 
@@ -12,7 +12,7 @@ export async function getAllNews(values: any) {
     }
 
     const response = await axios.post(
-      "http://localhost:5000/articles/get-all",
+      "http://localhost:5000/article/get-all",
       values,
       {
         headers: {
@@ -23,7 +23,7 @@ export async function getAllNews(values: any) {
 
     return response.data;
   } catch (error) {
-    console.error("Ошибка при получении заявок:", error);
+    console.error("Ошибка при получении новостей:", error);
     throw error;
   }
 }
