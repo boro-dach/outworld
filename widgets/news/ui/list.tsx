@@ -1,6 +1,12 @@
 "use client";
+<<<<<<< Updated upstream:widgets/news/ui/list.tsx
 import { useNewsQuery } from "@/entities/new/model/use-news";
 import New from "@/entities/new/ui/new";
+=======
+import { ArticleCategory } from "@/entities/article/model/enums";
+import { useArticlesQuery } from "@/entities/article/model/use-articles";
+import JournalistArticle from "@/entities/article/ui/article-admin";
+>>>>>>> Stashed changes:widgets/articles/ui/list-admin.tsx
 import { formatDate } from "@/shared/lib/date/date-formatter";
 import React from "react";
 
@@ -9,6 +15,12 @@ type NewType = {
   text: string;
   title: string;
   createdAt: string;
+<<<<<<< Updated upstream:widgets/news/ui/list.tsx
+=======
+  likes: number;
+  isLiked: boolean;
+  type: ArticleCategory;
+>>>>>>> Stashed changes:widgets/articles/ui/list-admin.tsx
 };
 
 const NewsList = () => {
@@ -25,6 +37,13 @@ const NewsList = () => {
           text={article.text}
           title={article.title}
           date={formatDate(article.createdAt)}
+<<<<<<< Updated upstream:widgets/news/ui/list.tsx
+=======
+          likes={article.likes}
+          isLiked={article.isLiked}
+          type={article.type}
+          id={article.id}
+>>>>>>> Stashed changes:widgets/articles/ui/list-admin.tsx
         />
       ))}
       {data?.length === 0 && (
