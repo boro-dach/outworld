@@ -3,7 +3,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export async function deleteArticle(values: any) {
+export async function createArticle(values: any) {
   try {
     const accessToken = Cookies.get("accessToken");
 
@@ -12,10 +12,8 @@ export async function deleteArticle(values: any) {
     }
 
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/article/delete`,
-      {
-        articleId: values,
-      },
+      "http://localhost:5000/article/create",
+      values,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -25,7 +23,7 @@ export async function deleteArticle(values: any) {
 
     return response.data;
   } catch (error) {
-    console.error("Ошибка при удалении новости:", error);
+    console.error("Ошибка при создании новости:", error);
     throw error;
   }
 }

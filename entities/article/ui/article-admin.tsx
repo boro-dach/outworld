@@ -2,14 +2,20 @@ import Like from "@/features/article/like/ui/like";
 import { Card, CardContent, CardFooter, CardHeader } from "@/shared/ui/card";
 import React from "react";
 import { ArticleProps } from "../model/props";
-import ArticleBadge from "./badge";
+import DeleteArticleButton from "@/features/article/ui/delete-button";
 
-const Article = ({ title, text, likes, type, id, isLiked }: ArticleProps) => {
+const JournalistArticle = ({
+  title,
+  text,
+  likes,
+  id,
+  isLiked,
+}: ArticleProps) => {
   return (
     <Card>
-      <CardHeader className="flex flex-row items-center gap-2">
+      <CardHeader className="flex flex-row items-center justify-between">
         <p className="text-xl font-bold">{title}</p>
-        <ArticleBadge type={type} />
+        <DeleteArticleButton articleId={id} />
       </CardHeader>
       <CardContent>
         <p>{text}</p>
@@ -22,4 +28,4 @@ const Article = ({ title, text, likes, type, id, isLiked }: ArticleProps) => {
   );
 };
 
-export default Article;
+export default JournalistArticle;
