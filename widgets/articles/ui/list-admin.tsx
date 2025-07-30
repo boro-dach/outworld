@@ -1,9 +1,12 @@
 "use client";
+<<<<<<< Updated upstream
 <<<<<<< HEAD:widgets/news/ui/list.tsx
 <<<<<<< Updated upstream:widgets/news/ui/list.tsx
 import { useNewsQuery } from "@/entities/new/model/use-news";
 import New from "@/entities/new/ui/new";
 =======
+=======
+>>>>>>> Stashed changes
 import { ArticleCategory } from "@/entities/article/model/enums";
 import { useArticlesQuery } from "@/entities/article/model/use-articles";
 import JournalistArticle from "@/entities/article/ui/article-admin";
@@ -26,11 +29,14 @@ type ArticleType = {
   likes: number;
   isLiked: boolean;
   type: ArticleCategory;
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes:widgets/articles/ui/list-admin.tsx
 =======
   likes: number;
   isLiked: boolean;
 >>>>>>> 4fc796df0ae0c2c70136086e8d73721bd7cfbf9e:widgets/articles/ui/list-admin.tsx
+=======
+>>>>>>> Stashed changes
 };
 
 const JournalistArticlesList = () => {
@@ -58,6 +64,7 @@ const JournalistArticlesList = () => {
 =======
           likes={article.likes}
           isLiked={article.isLiked}
+          type={article.type}
           id={article.id}
 >>>>>>> 4fc796df0ae0c2c70136086e8d73721bd7cfbf9e:widgets/articles/ui/list-admin.tsx
         />
