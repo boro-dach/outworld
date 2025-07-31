@@ -44,7 +44,7 @@ async function getUserJobs(token: string): Promise<string[]> {
     return [];
   }
   try {
-    const response = await fetch(`${backendUrl}/user/get-jobs`, {
+    const response = await fetch(`${backendUrl}/job/get`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
