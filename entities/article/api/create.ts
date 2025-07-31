@@ -12,7 +12,7 @@ export async function createArticle(values: any) {
     }
 
     const response = await axios.post(
-      "http://localhost:5000/article/create",
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/article/create`,
       values,
       {
         headers: {
