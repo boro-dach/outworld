@@ -12,7 +12,7 @@ const CardsList = () => {
 
   const reversedData = data ? [...data].reverse() : [];
   return (
-    <div className="w-full py-4 flex flex-col gap-4">
+    <div className="w-full py-4 flex flex-col gap-4 border-r pr-4">
       {reversedData?.map((card: any) => (
         <BankCard
           key={card.id}

@@ -1,7 +1,7 @@
 import { Badge } from "@/shared/ui/badge";
 import React from "react";
 import { ArticleCategory } from "../model/enums";
-import { Cog, Globe, Rss, Server } from "lucide-react";
+import { Cog, Rss, Server } from "lucide-react";
 
 const ArticleBadge = ({ type }: { type: ArticleCategory }) => {
   return (

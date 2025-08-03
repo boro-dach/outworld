@@ -1,0 +1,41 @@
+"use client";
+import { useCompaniesQuery } from "@/entities/company/model/use-companies";
+import Company from "@/entities/company/ui/company";
+import { Jobs } from "@/entities/vacancy/model/schema";
+import React from "react";
+
+export type EmployeeType = {
+  login: string;
+  jobs: Jobs[];
+};
+
+type CompanyType = {
+  id: string;
+  title: string;
+  description: string;
+  ceoId: string;
+  employees: EmployeeType[];
+};
+
+const CompaniesList = () => {
+  const { data, isLoading, error } = useCompaniesQuery();
+
+  return (
+    <div className="w-full py-4 flex flex-col gap-4">
+      {isLoading && <div>Loading...</div>}
+      {error && <div>Error loading companies</div>}
+      {data &&
+        data.map((company: CompanyType) => (
+          <Company
+            key={company.id}
+            title={company.title}
+            description={company.description}
+            employeesCount={company.employees.length}
+            employees={company.employees}
+          />
+        ))}
+    </div>
+  );
+};
+
+export default CompaniesList;

@@ -12,6 +12,7 @@ import VerificationBadge from "@/entities/user/ui/verification-badge";
 import { formatPlaytime } from "@/shared/lib/formatters/format-playtime";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import JobsList from "@/widgets/jobs/ui/jobs-list";
 
 const PlayerCard = () => {
   const [mounted, setMounted] = useState(false);
@@ -73,7 +74,7 @@ const PlayerCard = () => {
         {user?.login || "Нет данных"}
         <VerificationBadge isVerified={verificationData?.isVerified} />
       </CardHeader>
-      <CardContent className="flex flex-col gap-2">
+      <CardContent className="flex flex-col gap-4">
         <div>
           Ваша роль: {role?.role === "ADMIN" ? "Администратор" : "Игрок"}{" "}
           {role?.role === "ADMIN" ? (
@@ -88,6 +89,10 @@ const PlayerCard = () => {
           ) : (
             ""
           )}
+        </div>
+        <div className="flex flex-col">
+          <p>Работы:</p>
+          <JobsList />
         </div>
         <p>Время на сервере: {formatPlaytime(playtime)}</p>
       </CardContent>

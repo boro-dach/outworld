@@ -1,4 +1,6 @@
 import {
+  BriefcaseBusiness,
+  Building2,
   Calendar,
   CarTaxiFront,
   FileUser,
@@ -34,6 +36,11 @@ export const items = [
     title: "Суд",
     url: "#",
     icon: Scale,
+  },
+  {
+    title: "Компании",
+    url: "/dashboard/companies",
+    icon: Building2,
   },
   {
     title: "Профиль",

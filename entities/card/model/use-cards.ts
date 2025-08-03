@@ -6,6 +6,7 @@ import { AxiosError } from "axios";
 import { getAllCards } from "../api/get-all";
 import { createCard } from "../api/create";
 import { sendToCard } from "../api/send";
+import { transactionKeys } from "@/entities/transaction/model/use-transactions";
 
 export const cardKeys = {
   all: ["cards"] as const,
@@ -42,6 +43,8 @@ export const useSendToCard = () => {
     mutationFn: sendToCard,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: cardKeys.all });
+      queryClient.invalidateQueries({ queryKey: transactionKeys.all });
+
       toast.success("Средства успешно отправлены!");
     },
     onError: (error: AxiosError<any>) => {
