@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 
 const jobProtectedRoutes: Record<string, string | string[]> = {
   "/dashboard/journalist": "JOURNALIST",
+  "/dashboard/banker": "BANKER",
 };
 
 async function getUserRole(token: string): Promise<string | null> {
@@ -45,7 +46,7 @@ async function getUserJobs(token: string): Promise<string[]> {
   }
   try {
     const response = await fetch(`${backendUrl}/job/get`, {
-      method: "POST",
+      method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
