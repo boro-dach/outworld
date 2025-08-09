@@ -23,8 +23,9 @@ const CompaniesList = () => {
 
   return (
     <div className="w-full py-4 flex flex-col gap-4">
-      {isLoading && <div>Loading...</div>}
-      {error && <div>Error loading companies</div>}
+      {isLoading && <p>Загрузка...</p>}
+      {error && <p>Ошибка при загрузке компаний</p>}
+      {data.length === 0 || (!data && <p>Вы ещё не создавали компаний</p>)}
       {data &&
         data.map((company: CompanyType) => (
           <Company
