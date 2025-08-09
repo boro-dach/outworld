@@ -23,28 +23,16 @@ const CompaniesList = () => {
   const { data, isLoading, error } = useCompaniesQuery();
 
   if (isLoading) {
-    return (
-      <div className="w-full py-4 flex flex-col items-center justify-center">
-        <p>Загрузка...</p>
-      </div>
-    );
+    return <p>Загрузка...</p>;
   }
 
   if (error) {
     console.error("Failed to load companies:", error);
-    return (
-      <div className="w-full py-4 flex flex-col items-center justify-center">
-        <p className="text-destructive">Ошибка при загрузке компаний</p>
-      </div>
-    );
+    return <p>Ошибка при загрузке компаний</p>;
   }
 
   if (!data || data.length === 0) {
-    return (
-      <div className="w-full py-4 flex flex-col items-center justify-center">
-        <p>Вы ещё не создавали компаний</p>
-      </div>
-    );
+    return <p>Вы ещё не создавали компаний</p>;
   }
 
   return (
