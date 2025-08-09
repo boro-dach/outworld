@@ -4,6 +4,7 @@ import Company from "@/entities/company/ui/company";
 import { Jobs } from "@/entities/vacancy/model/schema";
 import React from "react";
 
+// Типы можно оставить как есть
 export type EmployeeType = {
   login: string;
   jobs: Jobs[];
@@ -21,23 +22,44 @@ type CompanyType = {
 const CompaniesList = () => {
   const { data, isLoading, error } = useCompaniesQuery();
 
+  if (isLoading) {
+    return (
+      <div className="w-full py-4 flex flex-col items-center justify-center">
+        <p>Загрузка...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    console.error("Failed to load companies:", error);
+    return (
+      <div className="w-full py-4 flex flex-col items-center justify-center">
+        <p className="text-destructive">Ошибка при загрузке компаний</p>
+      </div>
+    );
+  }
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="w-full py-4 flex flex-col items-center justify-center">
+        <p>Вы ещё не создавали компаний</p>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full py-4 flex flex-col gap-4">
-      {isLoading && <p>Загрузка...</p>}
-      {error && <p>Ошибка при загрузке компаний</p>}
-      {data.length === 0 || (!data && <p>Вы ещё не создавали компаний</p>)}
-      {data &&
-        data.map((company: CompanyType) => (
-          <Company
-            key={company.id}
-            title={company.title}
-            description={company.description}
-            employeesCount={company.employees.length}
-            employees={company.employees}
-            id={company.id}
-            ceoId={company.ceoId}
-          />
-        ))}
+      {data.map((company: CompanyType) => (
+        <Company
+          key={company.id}
+          id={company.id}
+          title={company.title}
+          description={company.description}
+          employeesCount={company.employees.length}
+          employees={company.employees}
+          ceoId={company.ceoId}
+        />
+      ))}
     </div>
   );
 };
