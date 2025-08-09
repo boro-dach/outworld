@@ -31,13 +31,9 @@ const CompaniesList = () => {
     return <p>Ошибка при загрузке компаний</p>;
   }
 
-  if (!data || data.length === 0) {
-    return <p>Вы ещё не создавали компаний</p>;
-  }
-
   return (
     <div className="w-full py-4 flex flex-col gap-4">
-      {data.map((company: CompanyType) => (
+      {data?.map((company: CompanyType) => (
         <Company
           key={company.id}
           id={company.id}
@@ -48,6 +44,11 @@ const CompaniesList = () => {
           ceoId={company.ceoId}
         />
       ))}
+      {data?.length === 0 && (
+        <div>
+          <p>Вы ещё не создавали компании</p>
+        </div>
+      )}
     </div>
   );
 };
