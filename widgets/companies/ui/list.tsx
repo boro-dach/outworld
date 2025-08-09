@@ -7,6 +7,7 @@ import React from "react";
 export type EmployeeType = {
   login: string;
   jobs: Jobs[];
+  id: string;
 };
 
 type CompanyType = {
@@ -32,6 +33,8 @@ const CompaniesList = () => {
             description={company.description}
             employeesCount={company.employees.length}
             employees={company.employees}
+            id={company.id}
+            ceoId={company.ceoId}
           />
         ))}
     </div>

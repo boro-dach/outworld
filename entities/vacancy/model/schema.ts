@@ -5,6 +5,7 @@ export enum Jobs {
   BUSINESSMAN = "BUSINESSMAN",
   JOURNALIST = "JOURNALIST",
   OTHER = "OTHER",
+  CEO = "CEO",
 }
 
 export enum SalaryType {

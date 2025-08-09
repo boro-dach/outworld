@@ -5,6 +5,7 @@ import {
   CarTaxiFront,
   FileUser,
   Globe,
+  IdCardLanyard,
   Scale,
   Truck,
   User,
@@ -42,6 +43,7 @@ export const items = [
     url: "/dashboard/companies",
     icon: Building2,
   },
+  { title: "Вакансии", url: "/dashboard/vacancies", icon: IdCardLanyard },
   {
     title: "Профиль",
     url: "/dashboard/me",

@@ -7,7 +7,6 @@ import { deleteApplication } from "../api/delete";
 import { approveApplication } from "../api/approve";
 import { rejectApplication } from "../api/reject";
 
-// Ключи для управления кэшем
 export const applicationKeys = {
   all: ["applications", "all"] as const,
   my: ["applications", "my"] as const,

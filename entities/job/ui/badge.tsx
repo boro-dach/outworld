@@ -12,8 +12,8 @@ const JobBadge = ({ job }: { job: Jobs }) => {
           ? "bg-blue-500"
           : job === Jobs.JOURNALIST
           ? "bg-amber-500 text-white"
-          : job === Jobs.OTHER
-          ? "Другое"
+          : job === Jobs.CEO
+          ? "bg-white text-black"
           : ""
       }
     >
@@ -23,6 +23,8 @@ const JobBadge = ({ job }: { job: Jobs }) => {
         ? "Предприниматель"
         : job === Jobs.JOURNALIST
         ? "Журналист"
+        : job === Jobs.CEO
+        ? "Создатель"
         : job === Jobs.OTHER
         ? "Другое"
         : ""}

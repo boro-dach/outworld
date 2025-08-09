@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getAllVacancies } from "../api/get-all";
 import { createVacancy } from "../api/create";
 import { toast } from "sonner";
+import { getVacanciesByCompany } from "../api/get-by-company";
 
 export const useVacanciesQuery = () =>
   useQuery({
@@ -25,3 +26,9 @@ export const useCreateVacancy = () => {
     },
   });
 };
+export const useVacanciesByCompanyQuery = (companyId: string) =>
+  useQuery({
+    queryKey: ["vacancies", "company", companyId],
+    queryFn: () => getVacanciesByCompany(companyId),
+    enabled: !!companyId,
+  });
